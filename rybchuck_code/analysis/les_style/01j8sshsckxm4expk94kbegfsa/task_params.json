@@ -1,0 +1,120 @@
+{
+    "nwploader_kwargs": {
+        "era5an_pl": {
+            "use_nwp_service": true
+        }
+    },
+    "timing": {
+        "start_wrt_init": "0H",
+        "inits": {
+            "start": "2023/05/01",
+            "end": "2023/05/01",
+            "freq": "1D"
+        },
+        "end_wrt_init": "24H"
+    },
+    "run_simulations": false,
+    "simulations": {
+        "meso": {
+            "spin_up": "6H",
+            "data_sources": {
+                "land_sea_mask": "default",
+                "dtm": "default",
+                "ground": "esri_world_imagery",
+                "land_use": "default",
+                "dsm": "default",
+                "ls_model": "era5an_pl"
+            },
+            "domain": {
+                "N": [
+                    128,
+                    128,
+                    null
+                ],
+                "L": [
+                    null,
+                    null,
+                    8000
+                ],
+                "d": [
+                    2000,
+                    2000,
+                    40
+                ],
+                "c": [
+                    3.0,
+                    52.0
+                ],
+                "dzgrowth": 4.0
+            },
+            "ls_coupling": "nwp",
+            "grasp_template": "nwp:meso"
+        },
+        "les": {
+            "parent": "meso",
+            "spin_up": "1H",
+            "metmasts": {
+                "metmast_collection": {
+                    "z": [
+                        10.0,
+                        20.0,
+                        50.0,
+                        100.0
+                    ],
+                    "lon": [
+                        3.0
+                    ],
+                    "lat": [
+                        52.0
+                    ],
+                    "id": [
+                        "metmast_01"
+                    ]
+                }
+            },
+            "data_sources": {
+                "land_sea_mask": "default",
+                "dtm": "default",
+                "tree_canopy_height": "default",
+                "ground": "esri_world_imagery",
+                "land_use": "default",
+                "dsm": "default",
+                "ls_model": "era5an_pl"
+            },
+            "domain": {
+                "z_start_growth_above_terrain": 300.0,
+                "fractional_max_terrain_height_wrt_Lz": 0.3,
+                "N": [
+                    128,
+                    128,
+                    null
+                ],
+                "L": [
+                    null,
+                    null,
+                    3000
+                ],
+                "d": [
+                    100,
+                    100,
+                    25
+                ],
+                "c": [
+                    3.0,
+                    52.0
+                ],
+                "dzgrowth": 2.0
+            },
+            "output": {
+                "metmasts": {
+                    "sampling_interval": "1s",
+                    "averaging_interval": "600s",
+                    "variables": "recipL, M, MM, TC, u, v, phydrof, rhohydrof, ti"
+                }
+            },
+            "ls_coupling": null,
+            "grasp_template": "nwp:modulated"
+        }
+    },
+    "scheduler_version": "v3"
+}

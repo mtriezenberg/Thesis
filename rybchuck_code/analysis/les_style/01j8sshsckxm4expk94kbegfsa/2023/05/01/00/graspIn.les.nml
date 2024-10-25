@@ -1,0 +1,141 @@
+&ARROWS
+    base = 1
+    color = '0,0,0'
+    length = 40
+    minimal_speed = 0.02
+    strides = '4,4'
+    type = 'vector'
+/
+
+&DOMAIN
+    Lx = 12800.0
+    Ly = 12800.0
+    Lz = 3071.0
+    Nx = 128
+    Ny = 128
+    Nz = 71
+    rotation_angle = 0.0
+    xlat = 52.0
+    xlon = 3.0
+    zh = 0.0, 25.0, 50.0, 75.0, 100.0, 125.0, 150.0, 175.0, 200.0, 225.0, 250.0, 275.0, 300.0, 325.0, 350.5, 376.51, 403.0402, 430.101004, 457.70302408, 485.8570845616, 514.574226252832, 543.8657107778886, 573.7430249934464, 604.2178854933154, 635.3022432031817, 667.0082880672453, 699.3484538285902, 732.335422905162, 765.9821313632654, 800.3017739905306, 835.3078094703412, 871.013965659748, 907.434244972943, 944.5829298724019, 982.47458846985, 1021.1240802392471, 1060.546561844032, 1100.7574930809128, 1141.772642942531, 1183.6080958013818, 1226.2802577174093, 1269.8058628717577, 1314.2019801291926, 1359.4860197317767, 1405.6757401264122, 1452.7892549289404, 1500.8450400275192, 1549.8619408280697, 1599.859179644631, 1650.8563632375237, 1702.8734905022743, 1755.9309603123197, 1810.0495795185661, 1865.2505711089375, 1921.5555825311162, 1978.9866941817386, 2037.5664280653734, 2097.317756626681, 2158.2641117592148, 2220.429393994399, 2283.837981874287, 2348.5147415117726, 2414.4850363420082, 2481.7747370688485, 2550.4102318102255, 2620.41843644643, 2691.8268051753585, 2764.6633412788656, 2838.956608104443, 2914.735740266532, 2992.030455071863, 3071.0
+/
+
+&DOME
+    modulation_factor = 1
+    nudgeExtent = '8,8,8,8,8'
+    nudgeFactor = '0.3,0.3,0.3,0.3,0.3'
+/
+
+&DYNAMICS
+    cu = 0.0
+    cv = 0.0
+    iadv_mom = 2
+    iadv_qt = 2
+    iadv_thl = 2
+    ibas_prf = 6
+/
+
+&FISH
+    dt_diagnose_divergence = 600
+    lactive = .true.
+/
+
+&LBC
+    format = 1
+    k1offset = 1
+    lnoWI = .true.
+    surface_properties_file = 'graspInLBC.les.nc'
+/
+
+&LOCATION
+    position = 493600.0000000006, 5754638.212590415, 0.0
+    projection = '32631'
+    reference = 'SWB'
+/
+
+&MODULATORS
+    lactive = .true.
+    type = 1
+/
+
+&NWP
+    lactive = .false.
+/
+
+&OBSTACLES
+    ibm_method = 1
+    lactive = .true.
+    number = 0
+    obstacle_file = '../../../../graspInObstacles.les.nc'
+    update = .false.
+/
+
+&PHYSICS
+    lcoriol = .true.
+    lhydrodynamic = .true.
+    lhydrotopdown = .true.
+    sponge_method = 0
+/
+
+&RUN
+    courant = 1.2
+    dofdif = 2023, 4, 30, 23, 0, 0, 0
+    doldif = 2023, 5, 2, 0, 0, 0, 0
+    dtmax = 20
+    irandom = 43
+    ladaptive = .true.
+    lstrict_parser = .true.
+    nsv = 0
+    peclet = 0.5
+    randqt = 2.5e-05
+    randthl = 0.1
+/
+
+&SGSALT
+    cs = 1.5
+    scheme = 'rozema'
+    tke_min = -1
+    tmax_kick = -1
+/
+
+&SIMDEP
+    depName = 'graspIn.meso.nml'
+    lactive = .true.
+/
+
+&STATTFMETMAST
+    dtav = 1.0
+    dtwrite = 600.0
+    h = 10.0, 20.0, 50.0, 100.0
+    i = 63
+    id = 'metmast_01'
+    j = 63
+    lactive = .true.
+    var = 'recipL, M, MM, TC, u, v, phydrof, rhohydrof, ti'
+/
+
+&VIEW
+    fov = 50
+    ground = 'graspInGround.les.png'
+    irigid = 2
+    lactive = .true.
+    lbbox = .true.
+    lfit_to_frame = .true.
+    lookat = 0.5, 0.5, 0.5
+    lookfrom = 0.5, 0.5, 20
+    lsolar = .true.
+    pixheight = 400
+    pixwidth = 400
+    satcolor = '0.6,0.2,0.2,0.3, 0.4, 0.2,1,1,1'
+    satval = '1,0.4,0.1'
+    var = 'rigid,canopy,ql'
+    vup = 0, 0, 1
+/
+
+&ZCROSS
+    colormap = 'viridis'
+    k = 4
+    lactive = .true.
+    larrows = .false.
+    var = 'M'
+/

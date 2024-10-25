@@ -1,0 +1,137 @@
+&ARROWS
+    base = 1
+    color = '0,0,0'
+    length = 200
+    minimal_speed = 0.02
+    strides = '4,4'
+    type = 'vector'
+/
+
+&DOMAIN
+    Lx = 256000.0
+    Ly = 256000.0
+    Lz = 8000.0
+    Nx = 128
+    Ny = 128
+    Nz = 56
+    dzin = 40.0
+    rotation_angle = 0.0
+    xlat = 52.0
+    xlon = 3.0
+/
+
+&DOME
+    modulation_factor = 0
+    nudgeExtent = '8,8,8,8,8'
+    nudgeFactor = '0.3,0.3,0.3,0.3,0.3'
+/
+
+&DYNAMICS
+    cu = 0.0
+    cv = 0.0
+    iadv_mom = 5
+    iadv_qt = 5
+    iadv_thl = 5
+    ibas_prf = 6
+/
+
+&FISH
+    dt_diagnose_divergence = 600
+    lactive = .true.
+/
+
+&LBC
+    format = 1
+    k1offset = 1
+    lnoWI = .true.
+    surface_properties_file = 'graspInLBC.meso.nc'
+/
+
+&LOCATION
+    position = 372000.0000000006, 5633038.212590415, -3.5823000955581663
+    projection = '32631'
+    reference = 'SWB'
+/
+
+&MODULATORS
+    lactive = .false.
+    type = 1
+/
+
+&NWP
+    filename = 'graspInNWP.meso.nc'
+    lactive = .true.
+/
+
+&OBSTACLES
+    ibm_method = 1
+    lactive = .true.
+    number = 0
+    obstacle_file = '../../../../graspInObstacles.meso.nc'
+    update = .false.
+/
+
+&PHYSICS
+    lcoriol = .true.
+    lhydrodynamic = .true.
+    lhydrotopdown = .true.
+    sponge_method = 0
+/
+
+&RUN
+    courant = 0.8
+    dofdif = 2023, 4, 30, 18, 0, 0, 0
+    doldif = 2023, 5, 2, 0, 0, 0, 0
+    dtmax = 20
+    irandom = 43
+    ladaptive = .true.
+    lstrict_parser = .true.
+    nsv = 0
+    peclet = 0.3
+    randqt = 0
+    randthl = 0
+/
+
+&SGSALT
+    Prt = 0.9
+    as1 = 10
+    as2 = 8
+    au1 = 18
+    blackadar_scale = 40
+    cs = 0.2
+    istability_correction = 11
+    lanisotropic = .true.
+    scheme = 'meso'
+    tke_min = -1
+    tmax_kick = -1
+/
+
+&SIMDEP
+    lactive = .false.
+/
+
+&VIEW
+    fov = 50
+    ground = 'graspInGround.meso.png'
+    irigid = 2
+    lactive = .true.
+    lbbox = .true.
+    lfit_to_frame = .true.
+    lookat = 0.5, 0.5, 0.5
+    lookfrom = 0.5, 0.5, 20
+    lsolar = .true.
+    pixheight = 400
+    pixwidth = 400
+    satcolor = '0.6,0.2,0.2,1,1,1'
+    satval = '1,0.1'
+    var = 'rigid,ql'
+    vup = 0, 0, 1
+/
+
+&ZCROSS
+    colormap = 'viridis'
+    k = 4
+    lactive = .true.
+    larrows = .false.
+    var = 'M'
+/
